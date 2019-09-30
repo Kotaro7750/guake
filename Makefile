@@ -76,7 +76,7 @@ ln-venv:
 clean-ln-venv:
 	@rm -f .venv
 
-install-system: install-schemas compile-shemas install-locale install-guake
+install-system: install-schemas compile-schemas install-locale install-guake
 
 install-guake:
 	# you probably want to execute this target with sudo:
@@ -143,7 +143,7 @@ install-schemas:
 	mkdir -p $(DESTDIR)$(SCHEMA_DIR)
 	install -Dm644 "$(DEV_DATA_DIR)/org.guake.gschema.xml" "$(DESTDIR)$(SCHEMA_DIR)/"
 
-compile-shemas:
+compile-schemas:
 	if [ $(COMPILE_SCHEMA) = 1 ]; then glib-compile-schemas $(DESTDIR)$(gsettingsschemadir); fi
 
 
